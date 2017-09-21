@@ -42,7 +42,7 @@ class CreatableSelect extends React.Component {
 	}
 
 	filterOptions (...params) {
-		const { filterOptions, isValidNewOption, options, promptTextCreator } = this.props;
+		const { filterOptions, isValidNewOption, options, promptText, promptTextCreator } = this.props;
 
 		// TRICKY Check currently selected options as well.
 		// Don't display a create-prompt for a value that's selected.
@@ -68,7 +68,7 @@ class CreatableSelect extends React.Component {
 			});
 
 			if (isOptionUnique) {
-				const prompt = promptTextCreator(this.inputValue);
+				const prompt = promptTextCreator(promptText, this.inputValue);
 
 				this._createPlaceholderOption = newOptionCreator({
 					label: prompt,
