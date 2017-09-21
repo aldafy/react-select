@@ -68,7 +68,7 @@ class CreatableSelect extends React.Component {
 			});
 
 			if (isOptionUnique) {
-				const prompt = promptTextCreator(promptText, this.inputValue);
+				const prompt = promptTextCreator(this.inputValue, promptText);
 
 				this._createPlaceholderOption = newOptionCreator({
 					label: prompt,
@@ -215,8 +215,8 @@ function newOptionCreator ({ label, labelKey, valueKey }) {
 	return option;
 };
 
-function promptTextCreator (label) {
-	return `Create option "${label}"`;
+function promptTextCreator (label, text) {
+	return `${text} "${label}"`;
 }
 
 function shouldKeyDownEventCreateNewOption ({ keyCode }) {
@@ -284,6 +284,9 @@ CreatableSelect.propTypes = {
 
 	// See Select.propTypes.options
 	options: PropTypes.array,
+
+	// Prompt text when creating option
+	promptText: PropTypes.string,
 
 		// Creates prompt/placeholder option text.
 		// (filterText: string): string
