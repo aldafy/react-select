@@ -296,5 +296,9 @@ CreatableSelect.propTypes = {
 	shouldKeyDownEventCreateNewOption: PropTypes.func,
 };
 
+CreatableSelect.propTypes = {
+	promptText: "Create option",
+};
+
 
 export default CreatableSelect;
